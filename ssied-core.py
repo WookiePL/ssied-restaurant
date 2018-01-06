@@ -12,7 +12,9 @@ hpg_store_info = pd.read_csv("dane/hpg_store_info.csv")
 sample_submission = pd.read_csv("dane/sample_submission.csv")
 store_id_relation = pd.read_csv("dane/store_id_relation.csv")
 
-air_visits.plot_all_visitors_by_date(air_visit_data)
+#air_visits.plot_all_visitors_by_date(air_visit_data)
+#air_visits.plot_visitors_by_month(air_visit_data)
+#air_visits.plot_visitors_by_day_of_week(air_visit_data)
 
 #print(air_visit_data)
 #air_visit_data['visitors'].plot()
