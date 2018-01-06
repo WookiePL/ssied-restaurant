@@ -19,6 +19,15 @@ sample_submission = pd.read_csv("dane/sample_submission.csv")
 store_id_relation = pd.read_csv("dane/store_id_relation.csv")
 
 
+
+#air_visits.plot_all_visitors_by_date(air_visit_data)
+#air_visits.plot_visitors_by_month(air_visit_data)
+#air_visits.plot_visitors_by_day_of_week(air_visit_data)
+
+#print(air_visit_data)
+#air_visit_data['visitors'].plot()
+#pyplot.show()
+
 def arima_example():
     filtered = air_visit_data.loc[air_visit_data['air_store_id'] == 'air_789466e488705c93']
     print(filtered['visitors'].head)
@@ -32,7 +41,3 @@ def arima_example():
     start = df.index.get_loc('20170401')
     stop = df.index.get_loc('20170422')
     predict_arima(df, start, stop)
-
-#print(air_visit_data)
-#air_visit_data['visitors'].plot()
-#pyplot.show()
