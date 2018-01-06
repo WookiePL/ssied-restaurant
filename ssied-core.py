@@ -1,6 +1,8 @@
 import pandas as pd
 from matplotlib import pyplot
 
+import air_visits
+
 date_info = pd.read_csv("dane/date_info.csv")
 air_reserve = pd.read_csv("dane/air_reserve.csv")
 air_store_info = pd.read_csv("dane/air_store_info.csv")
@@ -10,7 +12,8 @@ hpg_store_info = pd.read_csv("dane/hpg_store_info.csv")
 sample_submission = pd.read_csv("dane/sample_submission.csv")
 store_id_relation = pd.read_csv("dane/store_id_relation.csv")
 
-print(air_visit_data)
+air_visits.plot_all_visitors_by_date(air_visit_data)
 
-air_visit_data['visitors'].plot()
-pyplot.show()
+#print(air_visit_data)
+#air_visit_data['visitors'].plot()
+#pyplot.show()
