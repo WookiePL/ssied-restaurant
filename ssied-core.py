@@ -6,6 +6,7 @@ from statsmodels.tsa.arima_model import ARIMA
 import statsmodels.api as sm
 
 import air_visits
+import air_store
 from series_util import test_stationarity, difference, log
 from use_arima import predict_arima
 
@@ -27,6 +28,10 @@ store_id_relation = pd.read_csv("dane/store_id_relation.csv")
 #print(air_visit_data)
 #air_visit_data['visitors'].plot()
 #pyplot.show()
+
+# air_store.plot_air_store(air_store_info)
+# air_store.plot_hpg_store(hpg_store_info)
+
 
 def arima_example():
     filtered = air_visit_data.loc[air_visit_data['air_store_id'] == 'air_789466e488705c93']
