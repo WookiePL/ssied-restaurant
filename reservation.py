@@ -1,15 +1,15 @@
 from matplotlib import pyplot
 
 
-def plot_air_reservation(air_reserve):
-    air_reserve['visit_datetime'] = air_reserve['visit_datetime'].dt.date
+def plot_reservation(reserve, prefix):
+    reserve['visit_datetime'] = reserve['visit_datetime'].dt.date
 
-    ts = air_reserve.groupby('visit_datetime')['reserve_visitors'].sum()
+    ts = reserve.groupby('visit_datetime')['reserve_visitors'].sum()
     ax = ts.plot()
     ax.set_xlabel("Date")
     ax.set_ylabel("All visitors")
     for tick in ax.get_xticklabels():
-        tick.set_rotation(90)
+        tick.set_rotation(45)
 
     ax.grid('on', which='minor', axis='x', linestyle='-', linewidth=0.1)
     ax.grid('on', which='major', axis='y', linestyle='-', linewidth=0.1)
@@ -18,4 +18,4 @@ def plot_air_reservation(air_reserve):
 
     pyplot.tight_layout()
     # pyplot.show()
-    pyplot.savefig('figures/air_reservation.png', dpi=300)
+    pyplot.savefig('figures/' + prefix + '_reservation.png', dpi=300)
