@@ -1,9 +1,10 @@
 import pandas as pd
-from matplotlib import pyplot
+from matplotlib import pyplot, dates
 import numpy as np
 from pandas.plotting import autocorrelation_plot
 from statsmodels.tsa.arima_model import ARIMA
 import statsmodels.api as sm
+import matplotlib.ticker as mticker
 
 import reservation
 import air_visits
@@ -13,9 +14,11 @@ from use_arima import predict_arima
 
 date_info = pd.read_csv("dane/date_info.csv")
 air_reserve = pd.read_csv("dane/air_reserve.csv", index_col=2, parse_dates=[1, 2])
+air_reserve2 = pd.read_csv("dane/air_reserve.csv", parse_dates=[1, 2])
 air_store_info = pd.read_csv("dane/air_store_info.csv")
 air_visit_data = pd.read_csv("dane/air_visit_data.csv", index_col=1, parse_dates=[1])
 hpg_reserve = pd.read_csv("dane/hpg_reserve.csv", index_col=2, parse_dates=[1, 2])
+hpg_reserve2 = pd.read_csv("dane/hpg_reserve.csv", parse_dates=[1, 2])
 hpg_store_info = pd.read_csv("dane/hpg_store_info.csv")
 sample_submission = pd.read_csv("dane/sample_submission.csv")
 store_id_relation = pd.read_csv("dane/store_id_relation.csv")
@@ -30,8 +33,19 @@ store_id_relation = pd.read_csv("dane/store_id_relation.csv")
 #air_visits.plot_visitors_by_month(air_visit_data)
 #air_visits.plot_visitors_by_day_of_week(air_visit_data)
 
-reservation.plot_reservation(air_reserve, 'air')
-reservation.plot_reservation(hpg_reserve, 'hpg')
+# reservation.plot_reservation(air_reserve, 'air')
+# reservation.plot_reservation(hpg_reserve, 'hpg')
+
+# reservation.plot_reservation_hours(hpg_reserve, 'hpg')
+# reservation.plot_reservation_hours(air_reserve, 'air')
+
+# tmp = air_reserve[['visit_datetime', 'reserve_datetime']]
+# tmp['visit_datetime'] = tmp['visit_datetime'].dt.time
+# tmp['reserve_datetime'] = tmp['reserve_datetime'].dt.time
+
+# reservation.plot_time_from_reservation_to_visit(hpg_reserve2, 'hpg')
+# reservation.plot_time_from_reservation_to_visit(air_reserve2, 'air')
+
 
 
 # print(hpg_reserve)
